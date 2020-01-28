@@ -174,8 +174,8 @@
     (sb-sys:enable-interrupt sb-unix:sigio #'sigio-handler))
 
   (defun enable-sigio-on-fd (fd)
-    (sb-posix::fcntl fd sb-posix::f-setfl sb-posix::o-async)
-    (sb-posix::fcntl fd sb-posix::f-setown (getpid))
+    (sb-posix:fcntl fd sb-posix:f-setfl sb-posix:o-async)
+    (sb-posix:fcntl fd sb-posix:f-setown (getpid))
     (values))
 
   (defimplementation add-sigio-handler (socket fn)
